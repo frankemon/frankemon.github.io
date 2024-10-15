@@ -3,256 +3,395 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com/918213f8bc.js" crossorigin="anonymous"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                fontFamily: {
-                    'body': ['Poppins'],
-                }
-            }
-        }
-    </script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="color-scheme" content="light dark">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
-    <title>Francois Hugo | Junior Full Stack Developer</title>
+    <title>Francois Hugo | Full-stack Developer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="font-body text-slate-200">
-    <header class="relative h-screen overflow-hidden flex flex-col justify-between">
-        <div class="bg-black opacity-40 absolute w-full h-screen -z-1">
+<body id="top">
+    <div class="preloader">
+        <div class="spinner"></div>
+        <div class="logo-sm-preloader">
+            <img src="assets/img/logo-white.svg" alt="Logo" />
         </div>
-        <video src="assets/video/waves.mp4" muted loop autoplay
-            class="absolute -z-10 w-auto min-w-full min-h-full max-w-none"></video>
-        <nav class="flex relative px-4 lg:px-36 py-5 justify-between items-center">
-            <div class="w-16">
-                <img src="assets/img/logo.svg" alt="Francois Hugo" title="Logo Francois Hugo" />
+    </div>
+
+    <header>
+        <nav class="floating-nav">
+            <div class="logo-sm">
+                <img class="scroll-to-top" src="assets/img/logo-white.svg" alt="Website logo" />
             </div>
-            <ul class="flex w-36 justify-between items-center">
-                <li><a href="https://github.com/frankemon"><i class="fa-brands fa-github-square text-4xl"
-                            title="Frankemon GitHub"></i></a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="#home" class="scroll-to-top">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="mailto:frankie.hugo@hotmail.com?subject=Hello%20Frankie">Contact</a></li>
+                <li class="icon-wrapper">
+                    <div>
+                        <a target="_blank" href="https://github.com/frankemon">
+                            <img src="assets/img/github.svg" alt="Github Icon" />
+                        </a>
+                    </div>
+                    <div>
+                        <a target="_blank" href="https://www.linkedin.com/in/francois-hugo-570183102/">
+                            <img src="assets/img/linkedin.svg" alt="LinkedIn Icon" />
+                        </a>
+                    </div>
+                    <div class="dark-mode-wrapper">
+                        <img id="sun-icon" src="assets/img/sun.svg" alt="Sun Icon" style="display: none;" />
+                        <img id="moon-icon" src="assets/img/moon.svg" alt="Moon Icon" />
+                    </div>
                 </li>
-                <li><a href="https://www.linkedin.com/in/francois-hugo-570183102/"><i
-                            class="fa-brands fa-linkedin text-4xl" title="Francois Hugo LinkedIn"></i></a></li>
-                <li><a href="francois-hugo-23.pdf" target="_blank"><i class="fa-solid fa-file text-3xl"
-                            title="CV"></i></a></li>
-                <li><a href="mailto:frankie.hugo@hotmail.com"><i class="fa-solid fa-envelope text-4xl"
-                            title="Contact me"></i></a></li>
             </ul>
         </nav>
-        <div class="relative px-4 lg:px-36">
-            <h1 class="text-2xl md:text-3xl lg:text-4xl leading-loose md:leading-loose lg:leading-loose">
-                Hi, my name
-                is <span class="text-7xl md:text-8xl font-bold"><br />
-                    Francois Hugo
-                </span><br />
-                and I transform 1's and 0's into websites
-            </h1>
-        </div>
-        <div class="text-center text-stone-200 text-3xl relative mb-16 animate-bounce">
-            <i class="fa-solid fa-chevron-down"></i>
-        </div>
     </header>
-    <main
-        class="flex flex-col lg:text-lg text-slate-800 bg-stone-200 bg-fixed bg-[url('/assets/img/waves.svg')] bg-cover bg-no-repeat">
-        <section class="lg:h-screen flex flex-col justify-between align-center pt-12 px-4 lg:px-36">
-            <div class="space-y-6">
-                <h2 class="text-2xl md:text-3xl">Who am I?</h2>
-                <p>I'm a junior developer with a two year education specializing in Javscript for both front and
-                    backend. Eager to learn new
-                    things and take up challenges outside of my
-                    comfort zone, I try to aim higher than my current abilites in order to gain more knowledge and learn
-                    something new every day.
-                </p>
-                <p>Combining my prior education in health and fitness together with work experience in the
-                    hospitality
-                    and
-                    event
-                    management sector, I believe I offer a unique perspective to projects big or small.</p>
-                <p>
-                    Outside of divs and script files, I go by "Frankie" and spend my time surfing around the
-                    globe,
-                    weight
-                    training, taking
-                    pictures and baking the occasional sourdough loaf.
-                </p>
-                <div class="w-fit">
-                    <a href="francois-hugo-23.pdf" target="_blank">
-                        <div
-                            class="w-fit px-4 py-2 border rounded-lg border-slate-800 transition-all cursor-pointer hover:text-white hover:bg-slate-800 hover:transition-all">
-                            View CV</div>
-                    </a>
+
+    <section id="heroCentered">
+        <h1>Francois Hugo</h1>
+        <p>Full-stack developer turning ideas into reality, one line of code at a time.</p>
+        <div class="button-wrapper">
+            <a href="/assets/cv/francois_hugo_cv.pdf" download="francois_hugo_cv">
+                <div class="button-glow">
+                    Get my CV
                 </div>
-
-
-            </div>
-        </section>
-
-        <section class="lg:h-screen pt-12 px-4 lg:px-36">
-            <div class="space-y-6">
-                <h2 class="text-2xl md:text-3xl space-y-6">What have I done so far?</h2>
-                <p>Most recently, I've worked as a consultant for <a class="text-cyan-700 underline"
-                        title="Alphabyte AB" href="https://www.alphabyte.se"><b>Alphabyte
-                            AB</b></a>, where I was assigned to <a class="text-cyan-700 underline"
-                        title="Foggy Media AB" href="https://www.foggymedia.com"><b>Foggy Media
-                            AB</b></a>. My task was to build a SaaS, code testing platform with the goal of releasing
-                    their product for school systems and recruiters alike. While this product is not live yet, it's
-                    built with Typescript, NextJS, Redux and Strapi, a Javascript based headless CMS for the backend.
-                </p>
-                <p>I've interned at <a class="text-cyan-700 underline" title="Chesshotel"
-                        href="https://www.chesshotel.com"><b>Chesshotel</b></a>,
-                    an online chess platform, for over a year. Their platform is built with Typescript using React,
-                    NextJS and Redux on the frontend. The
-                    backend uses Koa/NodeJS and
-                    TypeORM to
-                    connect to a mySQL DB. I helped develop a new game mode, correspondence chess: turn-based gameplay
-                    where users have up to
-                    two days to complete their turns.</p>
-                <p>In my downtime I've also freelanced for <a class="text-cyan-700 underline" title="Deskhunters AB"
-                        href="https://www.deskhunters.com"><b>Deskhunters
-                            AB</b></a>, a Stockholm based startup that provides instant workplace solutions by offering
-                    pay-as-you-go, rentable desks at many different locations throughout the city. My task here building
-                    the website and structuring the CMS to allow for easily maintainable, dynamic content based on their
-                    needs. This product was built in <a class="text-cyan-700 underline" title="Webflow"
-                        href="https://www.webflow.com"><b>Webflow</b></b></a>.</p>
-                <p>I've also interned at <a class="text-cyan-700 underline" title="Starring AB"
-                        href="https://www.starring.se"><b>Starring AB</b></a>, a
-                    web
-                    agency working with WordPress offering affordable digital solutions to businesses. My task at
-                    Starring AB was to
-                    migrate several websites to new domains by recreating them and preparing them for their new digital
-                    homes. Below is a sample of <a class="text-cyan-700 underline" title="Chas Academy YH"
-                        href="https://chasacademy.se/"><b>school</b></a> projects
-                    using various tech-stacks, more can be found on my <a class="text-cyan-700 underline" title="GitHub"
-                        href="https://github.com/frankemon"><b>GitHub</b></a>.</p>
-
-                <div
-                    class="flex flex-col md:grid md:grid-cols-2 md:gap-3 md:grid-gap-y-3 lg:flex lg:flex-row justify-between">
-                    <div class="text-center lg:w-56 rounded shadow-md pt-4 hover:shadow-xl ease-in-out duration-300">
-                        <a href="https://github.com/frankemon/mern-chat" title="Chat project">
-                            <div class="text-center">
-                                <i class="fa-solid fa-comments text-5xl"></i>
-                            </div>
-                            <div class="px-6 py-4">
-                                <div class="text-xl mb-2 font-bold">Chat App</div>
-                                <p>
-                                    MongoDB, Express, React, NodeJS, TailwindCSS
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="text-center lg:w-56 rounded shadow-md pt-4 hover:shadow-xl ease-in-out duration-300">
-                        <a href="https://github.com/frankemon/react-weather-app" title="Weather project">
-                            <div class="text-center">
-                                <i class="fa-solid fa-temperature-three-quarters text-5xl"></i>
-                            </div>
-                            <div class="px-6 py-4">
-                                <div class="text-xl mb-2 font-bold">Weather App</div>
-                                <p>
-                                    React, Geolocation, API handling
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="text-center lg:w-56 rounded shadow-md pt-4 hover:shadow-xl ease-in-out duration-300">
-                        <a href="https://github.com/frankemon/js-hangman" title="Hangman project">
-                            <div class="text-center">
-                                <i class="fa-solid fa-gamepad text-5xl"></i>
-                            </div>
-                            <div class="px-6 py-4">
-                                <div class="text-xl mb-2 font-bold">Hangman</div>
-                                <p>
-                                    Pure vanilla JS game
-                                </p>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="text-center lg:w-56 rounded shadow-md pt-4 hover:shadow-xl ease-in-out duration-300">
-                        <a href="https://github.com/frankemon/todo-php" title="Todo project">
-                            <div class="text-center">
-                                <i class="fa-solid fa-list text-5xl"></i>
-                            </div>
-                            <div class="px-6 py-4">
-                                <div class="text-xl mb-2 font-bold">Todo App</div>
-                                <p>
-                                    PHP, Laravel, mySQL
-                                </p>
-                            </div>
-                        </a>
-                    </div>
+            </a>
+            <a href="mailto:frankie.hugo@hotmail.com?subject=Hello%20Frankie">
+                <div class="button-shiny">
+                    Contact me
                 </div>
-            </div>
-        </section>
-        <section class="lg:h-screen px-4 lg:px-36 mb-6 text-center">
-            <div class="pt-12 space-y-12 pb-20">
-                <h2 class="text-2xl lg:text-3xl">Tech I'm most familiar with</h2>
-                <div class="space-y-3">
-                    <p class="text-xl lg:text-2xl font-bold pb-4">Frontend</p>
-                    <ul
-                        class="grid grid-cols-3 gap-3 gap-y-6 lg:flex lg:flex-row lg:space-x-6 lg:justify-center justify-items-center">
-                        <li><img src="/assets/img/icons/typescript.svg" alt="Typescript" title="Typescript"></li>
-                        <li><img src="/assets/img/icons/nextjs.svg" alt="NextJS" title="NextJS"></li>
-                        <li><img src="/assets/img/icons/react.svg" alt="React" title="React"></li>
-                        <li><img src="/assets/img/icons/redux.svg" alt="Redux" title="Redux"></li>
-                        <li><img src="/assets/img/icons/sass.svg" alt="SASS" title="SASS"></li>
-                        <li><img src="/assets/img/icons/tailwindcss.svg" alt="TailwindCSS" title="TailwindCSS"></li>
-                    </ul>
-                </div>
-                <div class="space-y-3">
-                    <p class="text-xl lg:text-2xl font-bold pb-4">Backend</p>
-                    <ul
-                        class="grid grid-cols-3 gap-3 gap-y-6 lg:flex lg:flex-row lg:space-x-6 lg:justify-center justify-items-center">
-                        <li><img src="/assets/img/icons/express.svg" alt="ExpressJS" title="ExpressJS"></li>
-                        <li><img src="/assets/img/icons/koa.svg" alt="KOA" title="KOA"></li>
-                        <li><img src="/assets/img/icons/mysql.svg" alt="mySQL" title="mySQL"></li>
-                        <li><img src="/assets/img/icons/nodejs.svg" alt="NodeJS" title="NodeJS"></li>
-                        <li><img src="/assets/img/icons/websocket.svg" alt="Websockets" title="Websockets"></li>
-                    </ul>
-                </div>
-                <div class="space-y-3">
-                    <p class="text-xl lg:text-2xl font-bold pb-4">Other</p>
-                    <ul
-                        class="grid grid-cols-3 gap-3 gap-y-6 lg:flex lg:flex-row lg:space-x-6 lg:justify-center justify-items-center">
-                        <li><img src="/assets/img/icons/docker.svg" alt="Docker" title="Docker">
-                        </li>
-                        <li><img src="/assets/img/icons/figma.svg" alt="Figma" title="Figma"></li>
-                        <li><img src="/assets/img/icons/lightroom.svg" alt="Lightroom" title="Lightroom"></li>
-                        <li><img src="/assets/img/icons/photoshop.svg" alt="Photoshop" title="Photoshop"></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer class="min-w-full bottom-0 fixed">
-        <div class="flex px-4 lg:px-36 py-1 justify-between items-center bg-black">
-            <div class="w-6">
-                <a href="/">
-                    <img class="" src="assets/img/logo.svg" alt="FH" title="Logo FH" />
-                </a>
-            </div>
-            <p class="hidden md:block text-stone-200 text-xs">&copy; Francois Hugo 2023</p>
-            <ul class="text-stone-200 flex w-24 justify-between items-center">
-                <li><a href="https://github.com/frankemon"><i class="fa-brands fa-github-square text-2xl"
-                            title="Frankemon GitHub"></i></a>
-                </li>
-                <li><a href="https://www.linkedin.com/in/francois-hugo-570183102/"><i
-                            class="fa-brands fa-linkedin text-2xl" title="Francois Hugo LinkedIn"></i></a></li>
-                <li><a href="francois-hugo-23.pdf" target="_blank"><i class="fa-solid fa-file text-xl"
-                            title="CV"></i></a></li>
-                <li><a href="mailto:frankie.hugo@hotmail.com"><i class="fa-solid fa-envelope text-2xl"
-                            title="Contact me"></i></a></li>
-            </ul>
+            </a>
         </div>
-    </footer>
+    </section>
+
+    <div class="wave-wrapper">
+        <svg width="100%" height="100%" viewBox="0 0 1440 200" preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path id="wave-path" d="M0,0 C480,0 960,300 1440,0 L1440,200 L0,200 Z" fill="#e0e0e0" />
+        </svg>
+    </div>
+
+    <div class="wrapper">
+        <div class="container">
+
+            <section id="about">
+                <h2>A bit about me</h2>
+                <p>
+                    I'm a full-stack JavaScript developer who's been (mostly) working on SaaS platforms for last 3
+                    years. I
+                    thrive on transforming concepts into functional, user-friendly applications.
+                    I've worked in agile startups and small teams, often taking ownership of a feature's entire product
+                    lifecycle and am used to the pressures of tight deadlines
+                    as well as working closely with clients and their needs.
+                <p class="about-end-text">
+                    When I'm not coding, you can find me biking around, chasing surf or hiking through forests.
+                </p>
+            </section>
+        </div>
+
+        <div class="scroller-wrapper">
+            <div class="scroller" data-speed="slow">
+                <ul class="scroller-inner">
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/html.svg" alt="HTML" id="html">
+                            <p>HTML</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/css.svg" alt="CSS" id="css">
+                            <p>CSS</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/javascript.svg" alt="JavaScript" id="javascript">
+                            <p>JavaScript</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/typescript.svg" alt="TypeScript" id="typescript">
+                            <p>TypeScript</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/react.svg" alt="React" id="react">
+                            <p>React</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/nextjs.svg" alt="Next.js" id="nextjs">
+                            <p>Next.js</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/tailwindcss.svg" alt="TailwindCSS" id="tailwindcss">
+                            <p>TailwindCSS</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/redux.svg" alt="Redux" id="redux">
+                            <p>Redux</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/bootstrap.svg" alt="Bootstrap" id="bootstrap">
+                            <p>Bootstrap</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/nodejs.svg" alt="Node.js" id="nodejs">
+                            <p>Node.js</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/express.svg" alt="Express.js" id="express">
+                            <p>Express.js</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/mongodb.svg" alt="MongoDB" id="mongodb">
+                            <p>MongoDB</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/mysql.svg" alt="MySQL" id="mysql">
+                            <p>MySQL</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/git.svg" alt="Git" id="git">
+                            <p>Git</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/figma.svg" alt="Figma" id="figma">
+                            <p>Figma</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon">
+                            <img src="./assets/icons/lightroom.svg" alt="Lightroom" id="lightroom">
+                            <p>Lightroom</p>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <section id="experience">
+                <h2>Past experience</h2>
+                <ol>
+                    <li class="job-card">
+                        <a href="https://www.adcredo.io" target="_blank">
+                            <div>
+                                <h3>Adcredo</h3>
+                                <p>Full-stack developer</p>
+                                <p>
+                                    <time datetime="2023-03">March 2023</time> - <time datetime="2024-9">September
+                                        2024</time>
+                                </p>
+                                <ul class="tech-wrapper">
+                                    <li class="tech-bubble">JavaScript</li>
+                                    <li class="tech-bubble">React</li>
+                                    <li class="tech-bubble">TailwindCSS</li>
+                                    <li class="tech-bubble">Chart.js</li>
+                                    <li class="tech-bubble">Node.js</li>
+                                    <li class="tech-bubble">Express.js</li>
+                                    <li class="tech-bubble">MongoDB</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p>Focused on maintaining and improving campaign management and ad previews for users.
+                                    This included updated previews
+                                    according to current examples set by social media platforms. Integration of
+                                    Snapchat, including campaign, ad group and ad
+                                    creation as well as parsing data to fit their API requirements. Implementation of
+                                    various smaller user
+                                    components such as whitelabeling of outgoing report and preview modules, client
+                                    transfer capabilities between agents,
+                                    internal/external changelog system and more.
+                            </div>
+                        </a>
+                    </li>
+                    <li class="job-card">
+                        <a href="https://www.alphabyte.se" target="_blank">
+                            <div>
+                                <h3>Alphabyte</h3>
+                                <p>Full-stack developer</p>
+                                <p>
+                                    <time datetime="2022-09">September 2022</time> - <time datetime="2023-02">February
+                                        2023</time>
+                                </p>
+                                <ul class="tech-wrapper">
+                                    <li class="tech-bubble">JavaScript</li>
+                                    <li class="tech-bubble">TypeScript</li>
+                                    <li class="tech-bubble">Next.js</li>
+                                    <li class="tech-bubble">React</li>
+                                    <li class="tech-bubble">TailwindCSS</li>
+                                    <li class="tech-bubble">Redux</li>
+                                    <li class="tech-bubble">Node.js</li>
+                                    <li class="tech-bubble">Express.js</li>
+                                    <li class="tech-bubble">Strapi.js</li>
+                                    <li class="tech-bubble">Jest</li>
+                                    <li class="tech-bubble">MySQL</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p>Developed and deployed a scalable SaaS platform for code testing using modern
+                                    technologies. Leveraged TypeScript,
+                                    Next.js, React, and Redux to create a robust and user-friendly frontend experience.
+                                    Implemented a custom Strapi headless
+                                    CMS on Node.js, including tailored routes and API endpoints to manage content and
+                                    functionality. Utilized Jest for
+                                    comprehensive code testing on a separate server. Designed, implemented, and queried
+                                    a relational MySQL database to store
+                                    and manage application data.
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="job-card">
+                        <a href="https://www.deskhunters.com" target="_blank">
+                            <div>
+                                <h3>Deskhunters</h3>
+                                <p>Web developer</p>
+                                <p>
+                                    <time datetime="2022-09">September 2022</time> - <time datetime="2023-01">January
+                                        2023</time>
+                                </p>
+                                <ul class="tech-wrapper">
+                                    <li class="tech-bubble">HTML</li>
+                                    <li class="tech-bubble">CSS</li>
+                                    <li class="tech-bubble">JavaScript</li>
+                                    <li class="tech-bubble">Webflow</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p>Built and implemented client’s website according to requested design on Webflow.
+                                    Contributed to design discussions when
+                                    necessary. Structured and implemented a CMS system for dynamic content generation
+                                    according to client specifications.
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="job-card">
+                        <a href="https://www.chesshotel.com" target="_blank">
+                            <div>
+                                <h3>Chess Hotel</h3>
+                                <p>Full-stack developer</p>
+                                <p>
+                                    <time datetime="2022-01">January 2022</time> - <time datetime="2022-09">September
+                                        2022</time>
+                                </p>
+                                <ul class="tech-wrapper">
+                                    <li class="tech-bubble">JavaScript</li>
+                                    <li class="tech-bubble">React</li>
+                                    <li class="tech-bubble">TailwindCSS</li>
+                                    <li class="tech-bubble">Redux</li>
+                                    <li class="tech-bubble">Node.js</li>
+                                    <li class="tech-bubble">Express.js</li>
+                                    <li class="tech-bubble">MySQL</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p>Developed and implemented a new game mode, including backend logic in Node.js, API
+                                    endpoints, and MySQL database tables.
+                                    Upgraded the frontend by creating new React components and replacing legacy CSS with
+                                    TailwindCSS.</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="job-card">
+                        <a href="https://www.Webbkompaniet.se" target="_blank">
+                            <div>
+                                <h3>Webbkompaniet</h3>
+                                <p>Web developer</p>
+                                <p>
+                                    <time datetime="2021-10">October 2021</time> - <time datetime="2021-12">December
+                                        2021</time>
+                                </p>
+                                <ul class="tech-wrapper">
+                                    <li class="tech-bubble">HTML</li>
+                                    <li class="tech-bubble">CSS</li>
+                                    <li class="tech-bubble">JavaScript</li>
+                                    <li class="tech-bubble">WordPress</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p>Revamped and built websites using WordPress to meet client specifications. Researched
+                                    and integrated a variety of
+                                    WordPress themes and plugins to optimize website functionality and appearance.
+                                    Implemented basic SEO best practices to
+                                    improve website visibility and user experience.
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ol>
+            </section>
+
+            <section id="projects">
+                <h2>Side projects and stuff</h2>
+                <div class="construction-sign">
+                    <div class="construction-stripes top"></div>
+                    <p>Under construction</p>
+                    <div class="construction-stripes bottom"></div>
+                </div>
+            </section>
+
+        </div>
+        <footer>
+            <div class="logo-sm">
+                <img class="scroll-to-top" src="assets/img/logo-white.svg" alt="Website logo" />
+            </div>
+            <div>
+                <p>&copy; Francois Hugo 2024</p>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a target="_blank" href="https://github.com/frankemon">
+                            <img src="assets/img/github.svg" alt="Github Icon" />
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/francois-hugo-570183102/">
+                            <img src="assets/img/linkedin.svg" alt="LinkedIn Icon" />
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+    <script src="dist/main.js"></script>
 </body>
 
 </html>

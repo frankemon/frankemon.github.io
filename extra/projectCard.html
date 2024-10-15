@@ -1,0 +1,75 @@
+<div class="project-list">
+    <div class="project-card">
+        <h3>Project name</h3>
+        <div>
+            <img src="https://picsum.photos/300/200" alt="" loading="lazy" />
+        </div>
+        <div>
+            <p>Short description about the project, its tech stack, and the challenges you faced.</p>
+        </div>
+        <ul class="tech-wrapper">
+            <li class="tech-bubble">HTML</li>
+            <li class="tech-bubble">CSS</li>
+            <li class="tech-bubble">JavaScript</li>
+            <li class="tech-bubble">WordPress</li>
+        </ul>
+        <div class="button-wrapper">
+            <a href="https://www.github.com/frankemon" target="_blank">
+                <div class="button-standard">
+                    Check code
+                </div>
+            </a>
+            <a href="https://www.github.com/frankemon" target="_blank">
+                <div class="button-shiny">
+                    See live
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+.project-list {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2rem;
+}
+
+.project-card {
+padding: 2rem;
+border-radius: 0.5rem;
+background-color: #f7f7f7;
+transition: transform 0.3s ease-in-out;
+display: flex;
+flex-direction: column;
+}
+
+.project-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+padding-bottom: 1rem;
+color: var(--primary);
+}
+
+.project-card img {
+width: 100%;
+height: auto;
+border-radius: 0.5rem;
+object-fit: cover;
+flex-grow: 1;
+}
+
+.project-card p {
+padding-top: 1rem;
+}
+
+.project-card > .button-wrapper {
+padding-top: 1rem;
+}
+
+.project-card > .button-wrapper > a > .button-shiny {
+color: var(--primary);
+font-weight: 600;
+}

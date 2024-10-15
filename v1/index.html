@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/918213f8bc.js" crossorigin="anonymous"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    'body': ['Poppins'],
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
+    <title>Francois Hugo | Junior Full Stack Developer</title>
+</head>
+
+<body class="font-body text-slate-200">
+    <header class="relative h-screen overflow-hidden flex flex-col justify-between">
+        <div class="bg-black opacity-40 absolute w-full h-screen -z-1">
+        </div>
+        <video src="assets/video/waves.mp4" muted loop autoplay
+            class="absolute -z-10 w-auto min-w-full min-h-full max-w-none"></video>
+        <nav class="flex relative px-4 lg:px-36 py-5 justify-between items-center">
+            <div class="w-16">
+                <img src="assets/img/logo.svg" alt="Francois Hugo" title="Logo Francois Hugo" />
+            </div>
+            <ul class="flex w-36 justify-between items-center">
+                <li><a href="https://github.com/frankemon"><i class="fa-brands fa-github-square text-4xl"
+                            title="Frankemon GitHub"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/francois-hugo-570183102/"><i
+                            class="fa-brands fa-linkedin text-4xl" title="Francois Hugo LinkedIn"></i></a></li>
+                <li><a href="francois-hugo-23.pdf" target="_blank"><i class="fa-solid fa-file text-3xl"
+                            title="CV"></i></a></li>
+                <li><a href="mailto:frankie.hugo@hotmail.com"><i class="fa-solid fa-envelope text-4xl"
+                            title="Contact me"></i></a></li>
+            </ul>
+        </nav>
+        <div class="relative px-4 lg:px-36">
+            <h1 class="text-2xl md:text-3xl lg:text-4xl leading-loose md:leading-loose lg:leading-loose">
+                Hi, my name
+                is <span class="text-7xl md:text-8xl font-bold"><br />
+                    Francois Hugo
+                </span><br />
+                and I transform 1's and 0's into websites
+            </h1>
+        </div>
+        <div class="text-center text-stone-200 text-3xl relative mb-16 animate-bounce">
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </header>
+    <main
+        class="flex flex-col lg:text-lg text-slate-800 bg-stone-200 bg-fixed bg-[url('/assets/img/waves.svg')] bg-cover bg-no-repeat">
+        <section class="lg:h-screen flex flex-col justify-between align-center pt-12 px-4 lg:px-36">
+            <div class="space-y-6">
+                <h2 class="text-2xl md:text-3xl">Who am I?</h2>
+                <p>I'm a junior developer with a two year education specializing in Javscript for both front and
+                    backend. Eager to learn new
+                    things and take up challenges outside of my
+                    comfort zone, I try to aim higher than my current abilites in order to gain more knowledge and learn
+                    something new every day.
+                </p>
+                <p>Combining my prior education in health and fitness together with work experience in the
+                    hospitality
+                    and
+                    event
+                    management sector, I believe I offer a unique perspective to projects big or small.</p>
+                <p>
+                    Outside of divs and script files, I go by "Frankie" and spend my time surfing around the
+                    globe,
+                    weight
+                    training, taking
+                    pictures and baking the occasional sourdough loaf.
+                </p>
+                <div class="w-fit">
+                    <a href="francois-hugo-23.pdf" target="_blank">
+                        <div
+                            class="w-fit px-4 py-2 border rounded-lg border-slate-800 transition-all cursor-pointer hover:text-white hover:bg-slate-800 hover:transition-all">
+                            View CV</div>
+                    </a>
+                </div>
+
+
+            </div>
+        </section>
+
+        <section class="lg:h-screen pt-12 px-4 lg:px-36">
+            <div class="space-y-6">
+                <h2 class="text-2xl md:text-3xl space-y-6">What have I done so far?</h2>
+                <p>Most recently, I've worked as a consultant for <a class="text-cyan-700 underline"
+                        title="Alphabyte AB" href="https://www.alphabyte.se"><b>Alphabyte
+                            AB</b></a>, where I was assigned to <a class="text-cyan-700 underline"
+                        title="Foggy Media AB" href="https://www.foggymedia.com"><b>Foggy Media
+                            AB</b></a>. My task was to build a SaaS, code testing platform with the goal of releasing
+                    their product for school systems and recruiters alike. While this product is not live yet, it's
+                    built with Typescript, NextJS, Redux and Strapi, a Javascript based headless CMS for the backend.
+                </p>
+                <p>I've interned at <a class="text-cyan-700 underline" title="Chesshotel"
+                        href="https://www.chesshotel.com"><b>Chesshotel</b></a>,
+                    an online chess platform, for over a year. Their platform is built with Typescript using React,
+                    NextJS and Redux on the frontend. The
+                    backend uses Koa/NodeJS and
+                    TypeORM to
+                    connect to a mySQL DB. I helped develop a new game mode, correspondence chess: turn-based gameplay
+                    where users have up to
+                    two days to complete their turns.</p>
+                <p>In my downtime I've also freelanced for <a class="text-cyan-700 underline" title="Deskhunters AB"
+                        href="https://www.deskhunters.com"><b>Deskhunters
+                            AB</b></a>, a Stockholm based startup that provides instant workplace solutions by offering
+                    pay-as-you-go, rentable desks at many different locations throughout the city. My task here building
+                    the website and structuring the CMS to allow for easily maintainable, dynamic content based on their
+                    needs. This product was built in <a class="text-cyan-700 underline" title="Webflow"
+                        href="https://www.webflow.com"><b>Webflow</b></b></a>.</p>
+                <p>I've also interned at <a class="text-cyan-700 underline" title="Starring AB"
+                        href="https://www.starring.se"><b>Starring AB</b></a>, a
+                    web
+                    agency working with WordPress offering affordable digital solutions to businesses. My task at
+                    Starring AB was to
+                    migrate several websites to new domains by recreating them and preparing them for their new digital
+                    homes. Below is a sample of <a class="text-cyan-700 underline" title="Chas Academy YH"
+                        href="https://chasacademy.se/"><b>school</b></a> projects
+                    using various tech-stacks, more can be found on my <a class="text-cyan-700 underline" title="GitHub"
+                        href="https://github.com/frankemon"><b>GitHub</b></a>.</p>
+
+                <div
+                    class="flex flex-col md:grid md:grid-cols-2 md:gap-3 md:grid-gap-y-3 lg:flex lg:flex-row justify-between">
+                    <div class="text-center lg:w-56 rounded shadow-md pt-4 hover:shadow-xl ease-in-out duration-300">
+                        <a href="https://github.com/frankemon/mern-chat" title="Chat project">
+                            <div class="text-center">
+                                <i class="fa-solid fa-comments text-5xl"></i>
+                            </div>
+                            <div class="px-6 py-4">
+                                <div class="text-xl mb-2 font-bold">Chat App</div>
+                                <p>
+                                    MongoDB, Express, React, NodeJS, TailwindCSS
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="text-center lg:w-56 rounded shadow-md pt-4 hover:shadow-xl ease-in-out duration-300">
+                        <a href="https://github.com/frankemon/react-weather-app" title="Weather project">
+                            <div class="text-center">
+                                <i class="fa-solid fa-temperature-three-quarters text-5xl"></i>
+                            </div>
+                            <div class="px-6 py-4">
+                                <div class="text-xl mb-2 font-bold">Weather App</div>
+                                <p>
+                                    React, Geolocation, API handling
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="text-center lg:w-56 rounded shadow-md pt-4 hover:shadow-xl ease-in-out duration-300">
+                        <a href="https://github.com/frankemon/js-hangman" title="Hangman project">
+                            <div class="text-center">
+                                <i class="fa-solid fa-gamepad text-5xl"></i>
+                            </div>
+                            <div class="px-6 py-4">
+                                <div class="text-xl mb-2 font-bold">Hangman</div>
+                                <p>
+                                    Pure vanilla JS game
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="text-center lg:w-56 rounded shadow-md pt-4 hover:shadow-xl ease-in-out duration-300">
+                        <a href="https://github.com/frankemon/todo-php" title="Todo project">
+                            <div class="text-center">
+                                <i class="fa-solid fa-list text-5xl"></i>
+                            </div>
+                            <div class="px-6 py-4">
+                                <div class="text-xl mb-2 font-bold">Todo App</div>
+                                <p>
+                                    PHP, Laravel, mySQL
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="lg:h-screen px-4 lg:px-36 mb-6 text-center">
+            <div class="pt-12 space-y-12 pb-20">
+                <h2 class="text-2xl lg:text-3xl">Tech I'm most familiar with</h2>
+                <div class="space-y-3">
+                    <p class="text-xl lg:text-2xl font-bold pb-4">Frontend</p>
+                    <ul
+                        class="grid grid-cols-3 gap-3 gap-y-6 lg:flex lg:flex-row lg:space-x-6 lg:justify-center justify-items-center">
+                        <li><img src="/assets/img/icons/typescript.svg" alt="Typescript" title="Typescript"></li>
+                        <li><img src="/assets/img/icons/nextjs.svg" alt="NextJS" title="NextJS"></li>
+                        <li><img src="/assets/img/icons/react.svg" alt="React" title="React"></li>
+                        <li><img src="/assets/img/icons/redux.svg" alt="Redux" title="Redux"></li>
+                        <li><img src="/assets/img/icons/sass.svg" alt="SASS" title="SASS"></li>
+                        <li><img src="/assets/img/icons/tailwindcss.svg" alt="TailwindCSS" title="TailwindCSS"></li>
+                    </ul>
+                </div>
+                <div class="space-y-3">
+                    <p class="text-xl lg:text-2xl font-bold pb-4">Backend</p>
+                    <ul
+                        class="grid grid-cols-3 gap-3 gap-y-6 lg:flex lg:flex-row lg:space-x-6 lg:justify-center justify-items-center">
+                        <li><img src="/assets/img/icons/express.svg" alt="ExpressJS" title="ExpressJS"></li>
+                        <li><img src="/assets/img/icons/koa.svg" alt="KOA" title="KOA"></li>
+                        <li><img src="/assets/img/icons/mysql.svg" alt="mySQL" title="mySQL"></li>
+                        <li><img src="/assets/img/icons/nodejs.svg" alt="NodeJS" title="NodeJS"></li>
+                        <li><img src="/assets/img/icons/websocket.svg" alt="Websockets" title="Websockets"></li>
+                    </ul>
+                </div>
+                <div class="space-y-3">
+                    <p class="text-xl lg:text-2xl font-bold pb-4">Other</p>
+                    <ul
+                        class="grid grid-cols-3 gap-3 gap-y-6 lg:flex lg:flex-row lg:space-x-6 lg:justify-center justify-items-center">
+                        <li><img src="/assets/img/icons/docker.svg" alt="Docker" title="Docker">
+                        </li>
+                        <li><img src="/assets/img/icons/figma.svg" alt="Figma" title="Figma"></li>
+                        <li><img src="/assets/img/icons/lightroom.svg" alt="Lightroom" title="Lightroom"></li>
+                        <li><img src="/assets/img/icons/photoshop.svg" alt="Photoshop" title="Photoshop"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="min-w-full bottom-0 fixed">
+        <div class="flex px-4 lg:px-36 py-1 justify-between items-center bg-black">
+            <div class="w-6">
+                <a href="/">
+                    <img class="" src="assets/img/logo.svg" alt="FH" title="Logo FH" />
+                </a>
+            </div>
+            <p class="hidden md:block text-stone-200 text-xs">&copy; Francois Hugo 2023</p>
+            <ul class="text-stone-200 flex w-24 justify-between items-center">
+                <li><a href="https://github.com/frankemon"><i class="fa-brands fa-github-square text-2xl"
+                            title="Frankemon GitHub"></i></a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/francois-hugo-570183102/"><i
+                            class="fa-brands fa-linkedin text-2xl" title="Francois Hugo LinkedIn"></i></a></li>
+                <li><a href="francois-hugo-23.pdf" target="_blank"><i class="fa-solid fa-file text-xl"
+                            title="CV"></i></a></li>
+                <li><a href="mailto:frankie.hugo@hotmail.com"><i class="fa-solid fa-envelope text-2xl"
+                            title="Contact me"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
