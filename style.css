@@ -794,6 +794,11 @@ ol {
     padding: 1rem;
   }
 
+  .button-glow::before,
+  .button-glow::after {
+    animation: none;
+  }
+
   .scroller-wrapper {
     padding: 0;
   }
