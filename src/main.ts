@@ -1,6 +1,6 @@
-declare var particlesJS: any;
+declare let particlesJS: any;
 
-document.addEventListener("DOMContentLoaded", () => {
+const main = () => {
   let pathElement: SVGPathElement | null = null;
   const nav = document.querySelector<HTMLElement>("nav");
   const scrollerWrapper =
@@ -314,4 +314,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Ensure the function is available globally
   (window as any).toggleMenu = toggleMenu;
-});
+};
+
+document.addEventListener("DOMContentLoaded", main);

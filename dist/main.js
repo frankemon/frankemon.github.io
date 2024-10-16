@@ -1,5 +1,5 @@
 "use strict";
-document.addEventListener("DOMContentLoaded", () => {
+const main = () => {
     let pathElement = null;
     const nav = document.querySelector("nav");
     const scrollerWrapper = document.querySelector(".scroller-wrapper");
@@ -267,13 +267,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", checkScreenSizeAndAddListener);
     // Ensure the function is available globally
     window.toggleMenu = toggleMenu;
-    const handleMouseMove = (event) => {
-        const wrapper = document.querySelector(".wrapper");
-        const rect = wrapper.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        wrapper.style.setProperty("--mouse-x", `${x}px`);
-        wrapper.style.setProperty("--mouse-y", `${y}px`);
-    };
-    document.addEventListener("mousemove", handleMouseMove);
-});
+};
+document.addEventListener("DOMContentLoaded", main);
