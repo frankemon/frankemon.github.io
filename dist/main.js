@@ -1,75 +1,22 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", () => {
-    // Function to update the SVG fill color based on the theme
     let pathElement = null;
-    const updateFillColor = () => {
-        pathElement = document.getElementById("wave-path");
-        if (pathElement) {
-            const currentTheme = localStorage.getItem("theme") ||
-                (window.matchMedia("(prefers-color-scheme: dark)").matches
-                    ? "dark"
-                    : "light");
-            if (currentTheme === "dark") {
-                pathElement.setAttribute("fill", "#0e121d");
-            }
-            else {
-                pathElement.setAttribute("fill", "#e0e0e0");
-            }
-        }
-        else {
-            console.error("SVG path element not found.");
-        }
-    };
-    // Smooth scrolling effect for navigation links
-    document
-        .querySelectorAll("nav ul li a")
-        .forEach((anchor) => {
-        anchor.addEventListener("click", (event) => {
-            const href = event.currentTarget.getAttribute("href");
-            // Check if the href is a mailto link or if the element has the scroll-to-top class
-            if (href &&
-                !href.startsWith("mailto:") &&
-                anchor.className !== "scroll-to-top") {
-                // Prevent default behavior only if the href is a fragment identifier
-                if (href.startsWith("#")) {
-                    event.preventDefault();
-                    // Get the target element's ID from the href attribute
-                    const target = document.querySelector(href);
-                    if (target) {
-                        // Scroll to the target element smoothly
-                        target.scrollIntoView({
-                            behavior: "smooth",
-                        });
-                    }
-                }
-            }
-        });
-    });
-    // Scroll to top functionality for elements with the 'scroll-to-top' class
-    document
-        .querySelectorAll(".scroll-to-top")
-        .forEach((element) => {
-        element.addEventListener("click", (event) => {
-            const href = event.currentTarget.getAttribute("href");
-            // Only prevent default if href is not a mailto link
-            if (!href || !href.startsWith("mailto:")) {
-                event.preventDefault();
-                // Scroll to the top of the page smoothly
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth",
-                });
-            }
-        });
-    });
-    // Select all elements with the 'scroller' class
+    const nav = document.querySelector("nav");
+    const scrollerWrapper = document.querySelector(".scroller-wrapper");
+    const h1 = document.querySelector("h1");
     const scrollers = document.querySelectorAll(".scroller");
-    // Disables animations if the user has reduced motion enabled
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        addAnimation();
+    const sunIcon = document.getElementById("sun-icon");
+    const moonIcon = document.getElementById("moon-icon");
+    const navUl = document.querySelector("nav ul");
+    const hamburger = document.querySelector(".hamburger");
+    const preloader = document.querySelector(".preloader");
+    const spinner = document.querySelector(".spinner");
+    if (!nav || !scrollerWrapper || !h1) {
+        console.error("Required elements not found");
+        return;
     }
     // Function to add animation to scroller elements
-    function addAnimation() {
+    const addAnimation = () => {
         scrollers.forEach((scroller) => {
             // Mark the scroller as animated
             scroller.setAttribute("data-animated", "true");
@@ -89,15 +36,75 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error("Element with class 'scroller-inner' not found.");
             }
         });
+    };
+    // Disables animations if the user has reduced motion enabled
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        addAnimation();
     }
-    // Select the navigation bar, scroller wrapper, and h1 elements
-    const nav = document.querySelector("nav");
-    const scrollerWrapper = document.querySelector(".scroller-wrapper");
-    const h1 = document.querySelector("h1");
-    if (!nav || !scrollerWrapper || !h1) {
-        console.error("Required elements not found");
-        return;
-    }
+    const updateFillColor = () => {
+        pathElement = document.getElementById("wave-path");
+        if (pathElement) {
+            const currentTheme = localStorage.getItem("theme") ||
+                (window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light");
+            if (currentTheme === "dark") {
+                pathElement.setAttribute("fill", "#0e121d");
+            }
+            else {
+                pathElement.setAttribute("fill", "#e0e0e0");
+            }
+        }
+        else {
+            console.error("SVG path element not found.");
+        }
+    };
+    // Smooth scrolling effect for navigation links
+    const setupSmoothScrolling = () => {
+        document
+            .querySelectorAll("nav ul li a")
+            .forEach((anchor) => {
+            anchor.addEventListener("click", (event) => {
+                const href = event.currentTarget.getAttribute("href");
+                // Check if the href is a mailto link or if the element has the scroll-to-top class
+                if (href &&
+                    !href.startsWith("mailto:") &&
+                    anchor.className !== "scroll-to-top") {
+                    // Prevent default behavior only if the href is a fragment identifier
+                    if (href.startsWith("#")) {
+                        event.preventDefault();
+                        // Get the target element's ID from the href attribute
+                        const target = document.querySelector(href);
+                        if (target) {
+                            // Scroll to the target element smoothly
+                            target.scrollIntoView({
+                                behavior: "smooth",
+                            });
+                        }
+                    }
+                }
+            });
+        });
+    };
+    // Scroll to top functionality for elements with the 'scroll-to-top' class
+    const setupScrollToTop = () => {
+        document
+            .querySelectorAll(".scroll-to-top")
+            .forEach((element) => {
+            element.addEventListener("click", (event) => {
+                const href = event.currentTarget.getAttribute("href");
+                // Only prevent default if href is not a mailto link
+                if (!href || !href.startsWith("mailto:")) {
+                    event.preventDefault();
+                    // Scroll to the top of the page smoothly
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth",
+                    });
+                }
+            });
+        });
+    };
     const handleScroll = () => {
         // Get elements actual sizes in the DOM
         const navRect = nav.getBoundingClientRect();
@@ -132,10 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
             nav.classList.add("floating-nav");
         }
     };
-    // Initial check
-    checkScreenSizeAndAddListener();
-    // Add event listener for window resize to re-check screen size
-    window.addEventListener("resize", checkScreenSizeAndAddListener);
     // Function to apply the theme
     const applyTheme = (theme) => {
         document.documentElement.setAttribute("data-theme", theme);
@@ -168,6 +171,12 @@ document.addEventListener("DOMContentLoaded", () => {
         })
             .catch((error) => console.error("Error loading particles configuration:", error));
     };
+    // Apply the saved theme on page load
+    const savedTheme = localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+    applyTheme(savedTheme);
     // Function to toggle the theme
     const toggleTheme = () => {
         const currentTheme = localStorage.getItem("theme");
@@ -178,8 +187,85 @@ document.addEventListener("DOMContentLoaded", () => {
             applyTheme("dark");
         }
     };
-    const sunIcon = document.getElementById("sun-icon");
-    const moonIcon = document.getElementById("moon-icon");
+    // Function to show the preloader
+    const showPreloader = () => {
+        if (preloader && spinner) {
+            preloader.classList.remove("fade-out");
+            preloader.style.visibility = "visible";
+            preloader.style.opacity = "1";
+            spinner.style.animation = "spin 0.3s linear infinite";
+        }
+    };
+    // Function to stop spinner
+    const stopSpinner = () => {
+        if (spinner) {
+            spinner.style.animation = "none";
+        }
+    };
+    // Function to fadeout the preloader
+    const fadeOutPreloader = () => {
+        if (preloader) {
+            preloader.classList.add("fade-out");
+            preloader.addEventListener("transitionend", () => {
+                preloader.style.visibility = "hidden";
+            });
+        }
+    };
+    // Stop the spinner after 1 second and then fade out the preloader
+    setTimeout(() => {
+        stopSpinner();
+        fadeOutPreloader();
+    }, 300);
+    const toggleMenu = () => {
+        if (navUl) {
+            navUl.classList.toggle("show");
+            // Add event listener to each li element
+            const navItems = navUl.querySelectorAll("li");
+            navItems.forEach((item) => {
+                item.addEventListener("click", () => {
+                    navUl.classList.remove("show");
+                    if (hamburger) {
+                        hamburger.classList.remove("open");
+                    }
+                });
+            });
+        }
+        if (hamburger) {
+            hamburger.classList.toggle("open");
+        }
+    };
+    const trackUserPosition = () => {
+        if (!navUl)
+            return;
+        const sections = document.querySelectorAll("section");
+        const navItems = navUl.querySelectorAll("li");
+        const updateNavItemColor = () => {
+            sections.forEach((section) => {
+                const rect = section.getBoundingClientRect();
+                const sectionId = section.getAttribute("id");
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= 0) {
+                    navItems.forEach((item) => {
+                        item.style.color = "";
+                        if (sectionId && item.classList.contains(sectionId)) {
+                            item.style.color = "var(--secondary)";
+                        }
+                    });
+                }
+            });
+        };
+        window.addEventListener("scroll", updateNavItemColor);
+        window.addEventListener("resize", updateNavItemColor);
+        // Initial call to set the correct color on page load
+        updateNavItemColor();
+    };
+    // Initial call to update the SVG fill color
+    updateFillColor();
+    // Call the function to set up smooth scrolling
+    setupSmoothScrolling();
+    // Call the function to set up scroll-to-top behavior
+    setupScrollToTop();
+    // Initial check
+    checkScreenSizeAndAddListener();
     // Event listeners for the icons
     sunIcon.addEventListener("click", () => {
         showPreloader();
@@ -201,69 +287,10 @@ document.addEventListener("DOMContentLoaded", () => {
             fadeOutPreloader();
         }, 300);
     });
-    // Apply the saved theme on page load
-    const savedTheme = localStorage.getItem("theme") ||
-        (window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light");
-    applyTheme(savedTheme);
-    // Initial call to update the SVG fill color
-    updateFillColor();
-    // Initial call to update the SVG fill color
-    updateFillColor();
-    // Function to show the preloader
-    const showPreloader = () => {
-        const preloader = document.querySelector(".preloader");
-        const spinner = document.querySelector(".spinner");
-        if (preloader && spinner) {
-            preloader.classList.remove("fade-out");
-            preloader.style.visibility = "visible";
-            preloader.style.opacity = "1";
-            spinner.style.animation = "spin 0.3s linear infinite";
-        }
-    };
-    // Function to stop spinner
-    const stopSpinner = () => {
-        const spinner = document.querySelector(".spinner");
-        if (spinner) {
-            spinner.style.animation = "none";
-        }
-    };
-    // Function to fadeout the preloader
-    const fadeOutPreloader = () => {
-        const preloader = document.querySelector(".preloader");
-        if (preloader) {
-            preloader.classList.add("fade-out");
-            preloader.addEventListener("transitionend", () => {
-                preloader.style.visibility = "hidden";
-            });
-        }
-    };
-    // Stop the spinner after 1 second and then fade out the preloader
-    setTimeout(() => {
-        stopSpinner();
-        fadeOutPreloader();
-    }, 300);
-    function toggleMenu() {
-        const navUl = document.querySelector("nav ul");
-        const hamburger = document.querySelector(".hamburger");
-        if (navUl) {
-            navUl.classList.toggle("show");
-            // Add event listener to each li element
-            const navItems = navUl.querySelectorAll("li");
-            navItems.forEach((item) => {
-                item.addEventListener("click", () => {
-                    navUl.classList.remove("show");
-                    if (hamburger) {
-                        hamburger.classList.remove("open");
-                    }
-                });
-            });
-        }
-        if (hamburger) {
-            hamburger.classList.toggle("open");
-        }
-    }
+    // Initial call to trackUserPosition
+    trackUserPosition();
+    // Event listener for window resize to re-check screen size
+    window.addEventListener("resize", checkScreenSizeAndAddListener);
     // Ensure the function is available globally
     window.toggleMenu = toggleMenu;
 });

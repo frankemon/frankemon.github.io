@@ -803,3 +803,8 @@ ol {
     padding: 0;
   }
 }
+
+section#home ~ nav ul li.home,
+section#about ~ nav ul li.about,
+section#contact ~ nav ul li.contact {
+    color: var(--secondary);
