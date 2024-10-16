@@ -234,30 +234,6 @@ document.addEventListener("DOMContentLoaded", () => {
             hamburger.classList.toggle("open");
         }
     };
-    const trackUserPosition = () => {
-        if (!navUl)
-            return;
-        const sections = document.querySelectorAll("section");
-        const navItems = navUl.querySelectorAll("li");
-        const updateNavItemColor = () => {
-            sections.forEach((section) => {
-                const rect = section.getBoundingClientRect();
-                const sectionId = section.getAttribute("id");
-                if (rect.top <= window.innerHeight / 2 && rect.bottom >= 0) {
-                    navItems.forEach((item) => {
-                        item.style.color = "";
-                        if (sectionId && item.classList.contains(sectionId)) {
-                            item.style.color = "var(--secondary)";
-                        }
-                    });
-                }
-            });
-        };
-        window.addEventListener("scroll", updateNavItemColor);
-        window.addEventListener("resize", updateNavItemColor);
-        // Initial call to set the correct color on page load
-        updateNavItemColor();
-    };
     // Initial call to update the SVG fill color
     updateFillColor();
     // Call the function to set up smooth scrolling
@@ -287,10 +263,17 @@ document.addEventListener("DOMContentLoaded", () => {
             fadeOutPreloader();
         }, 300);
     });
-    // Initial call to trackUserPosition
-    trackUserPosition();
     // Event listener for window resize to re-check screen size
     window.addEventListener("resize", checkScreenSizeAndAddListener);
     // Ensure the function is available globally
     window.toggleMenu = toggleMenu;
+    const handleMouseMove = (event) => {
+        const wrapper = document.querySelector(".wrapper");
+        const rect = wrapper.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        wrapper.style.setProperty("--mouse-x", `${x}px`);
+        wrapper.style.setProperty("--mouse-y", `${y}px`);
+    };
+    document.addEventListener("mousemove", handleMouseMove);
 });
