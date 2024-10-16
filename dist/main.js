@@ -249,6 +249,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const hamburger = document.querySelector(".hamburger");
         if (navUl) {
             navUl.classList.toggle("show");
+            // Add event listener to each li element
+            const navItems = navUl.querySelectorAll("li");
+            navItems.forEach((item) => {
+                item.addEventListener("click", () => {
+                    navUl.classList.remove("show");
+                    if (hamburger) {
+                        hamburger.classList.remove("open");
+                    }
+                });
+            });
         }
         if (hamburger) {
             hamburger.classList.toggle("open");
