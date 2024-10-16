@@ -1,3 +1,5 @@
+declare var particlesJS: any;
+
 document.addEventListener("DOMContentLoaded", () => {
   // Function to update the SVG fill color based on the theme
   let pathElement: SVGPathElement | null = null;
@@ -176,6 +178,25 @@ document.addEventListener("DOMContentLoaded", () => {
       sunIcon.style.display = "none";
       moonIcon.style.display = "block";
     }
+
+    // Load the particles configuration and modify it based on the theme
+    fetch("assets/particles.json")
+      .then((response) => response.json())
+      .then((config) => {
+        if (theme === "dark") {
+          config.particles.color.value = "#0e121d";
+          config.particles.shape.stroke.color = "#0e121d";
+          config.particles.line_linked.color = "#0e121d";
+        } else {
+          config.particles.color.value = "#e0e0e0";
+          config.particles.shape.stroke.color = "#e0e0e0";
+          config.particles.line_linked.color = "#e0e0e0";
+        }
+        particlesJS("particles-js", config);
+      })
+      .catch((error) =>
+        console.error("Error loading particles configuration:", error)
+      );
   };
 
   // Function to toggle the theme

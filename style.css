@@ -401,6 +401,11 @@ nav > ul > li > div > img {
   object-fit: contain;
 }
 
+#particles-js {
+  position: absolute;
+  inset: 0;
+}
+
 /* Preloader styles */
 .preloader {
   position: fixed;
@@ -751,11 +756,11 @@ ol {
     text-align: center;
   }
 
-  header > nav ul {
+  header > nav > ul {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: var(--primary);
+    background-color: var(--secondary);
     position: absolute;
     top: 100%;
     left: 0;
