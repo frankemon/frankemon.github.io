@@ -35,6 +35,8 @@
     --button-text: #e0e0e0;
     --job-card-static: #333333;
     --job-card-hover: #26619c;
+    --project-card-static: #333333;
+    --project-card-hover: #26619c;
     --h2: #26619c;
     --scroller: #b2b2b2;
   }
@@ -53,6 +55,8 @@
   --button-text: #e0e0e0;
   --job-card-static: #333333;
   --job-card-hover: #26619c;
+  --project-card-static: #333333;
+  --project-card-hover: #26619c;
   --h2: #26619c;
   --scroller: #b2b2b2;
 }
@@ -70,6 +74,8 @@
   --button-text: #e0e0e0;
   --job-card-static: #f7f7f7;
   --job-card-hover: #f7f7f7;
+  --project-card-static: #f7f7f7;
+  --project-card-hover: #f7f7f7;
   --h2: #333333;
   --scroller: #f7f7f7;
 }
@@ -108,13 +114,23 @@ body {
 }
 
 .button-standard,
-.button-shiny {
+.button-shiny,
+.button-modal {
   padding: 0.75rem 1.5rem;
   color: #e0e0e0;
   text-decoration: none;
   border-radius: 1.6rem;
   cursor: pointer;
 }
+
+/* .button-modal {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+} */
 
 .button-standard {
   background-color: var(--button-background);
@@ -365,7 +381,6 @@ nav > ul > li > div > img {
 }
 
 .job-card:hover {
-  /* transform: translateX(5px); */
   background-color: var(--job-card-hover);
   cursor: pointer;
   border-radius: 0.5rem;
@@ -399,6 +414,41 @@ nav > ul > li > div > img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--project-card-static);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  display: none;
+  /* width: 90%; */
+  width: 50%;
+  max-width: 50%;
+}
+
+.modal h2 {
+  text-align: center;
+  padding-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.modal p {
+  padding-bottom: 1rem;
+}
+
+.modal-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-content {
+  text-align: left;
 }
 
 #particles-js {
@@ -511,8 +561,82 @@ nav.floating-nav {
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.5);
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
+
 #projects {
   padding-bottom: 8rem;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.project-card {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out, background 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+  background-color: var(--job-card-static);
+}
+
+.project-card:hover {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+  padding-bottom: 1rem;
+  color: var(--tertiary);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  flex-grow: 1;
+}
+
+.project-card p {
+  padding-top: 1rem;
+}
+
+.project-card > .button-wrapper {
+  padding-top: 1rem;
+}
+
+.project-card > .button-wrapper > a > .button-shiny {
+  color: var(--text-color);
+  /* font-weight: 600; */
+  border: 1px solid var(--text-color);
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.read-more {
+  padding-top: 1rem;
 }
 
 .scroller {
@@ -707,6 +831,10 @@ ol {
     transform: translateY(-8px) rotate(-45deg);
   }
 
+  .hidden {
+    display: none;
+  }
+
   .icon-wrapper {
     justify-content: center;
     align-items: center;
@@ -779,8 +907,18 @@ ol {
     opacity: 1;
   }
 
+  .modal {
+    width: 90%;
+    max-width: 90%;
+  }
+
   #projects {
     padding-bottom: 4rem;
+  }
+
+  .project-list {
+    display: flex;
+    flex-direction: column;
   }
 
   .scroller-wrapper {
@@ -788,7 +926,7 @@ ol {
   }
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 451px) and (max-width: 1024px) {
   /* Styles for standard tablets */
   .container {
     padding: 1rem;
@@ -797,6 +935,17 @@ ol {
   .button-glow::before,
   .button-glow::after {
     animation: none;
+  }
+
+  .modal {
+    width: 75%;
+    max-width: 75%;
+  }
+
+  .project-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 
   .scroller-wrapper {

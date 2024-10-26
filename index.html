@@ -363,12 +363,58 @@
             <section id="projects">
                 <h2>Side projects and stuff</h2>
                 <!-- <a href="projects/test.html">Test</a> -->
-                <div class="construction-sign">
+                <!-- <div class="construction-sign">
                     <div class="construction-stripes top"></div>
                     <p>Under construction</p>
                     <div class="construction-stripes bottom"></div>
+                </div> -->
+                <div class="project-list">
+                    <div class="project-card">
+                        <h3>CoffeeCount</h3>
+                        <div>
+                            <img src="./assets/img/coffeecount.png" alt="" loading="lazy" />
+                        </div>
+                        <div>
+                            <p>An app to track your daily coffee intake, calculate total caffeine consumption, and
+                                optimize it based on caffeine
+                                half-life.</p>
+                        </div>
+                        <div class="read-more">
+                            <button class="read-more-btn" data-project="coffeecount">
+                                More about this project
+                            </button>
+                        </div>
+                        <ul class="tech-wrapper">
+                            <li class="tech-bubble">React</li>
+                            <li class="tech-bubble">TypeScript</li>
+                            <li class="tech-bubble">TailwindCSS</li>
+                        </ul>
+                        <div class="button-wrapper">
+                            <a href="https://github.com/frankemon/coffeecount" target="_blank">
+                                <div class="button-standard">
+                                    Check code
+                                </div>
+                            </a>
+                            <a href="https://frankemon.github.io/projects/coffeecount/" target="_blank">
+                                <div class="button-shiny">
+                                    See live
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
+
+            <div id="overlay" class="overlay hidden"></div>
+            <div id="modal" class="modal hidden">
+                <div class="modal-content">
+                    <h2>Project Details</h2>
+                    <div id="modal-text-wrapper"></div>
+                    <div class="modal-button-wrapper">
+                        <div id="close-modal" class="button-standard">Close</div>
+                    </div>
+                </div>
+            </div>
 
         </div>
         <footer>

@@ -13,6 +13,20 @@ const main = () => {
   const hamburger = document.querySelector(".hamburger") as HTMLElement | null;
   const preloader = document.querySelector(".preloader") as HTMLElement;
   const spinner = document.querySelector(".spinner") as HTMLElement;
+  const overlay = document.getElementById("overlay") as HTMLElement;
+  const modal = document.getElementById("modal") as HTMLElement;
+  const modalText = document.getElementById(
+    "modal-text-wrapper"
+  ) as HTMLElement;
+  const closeModalBtn = document.getElementById("close-modal") as HTMLElement;
+
+  const projectDetails: { [key: string]: string } = {
+    coffeecount: `
+            <p>Originally built in React with JavaScript, I first converted all files to TypeScript and implemented TailwindCSS. The design is simple and coffee-themed, featuring bold text and a clean UI.</p>
+            <p>The biggest challenge was handling the timer on mobile devices, as browsers pause when not in focus to save battery and data. To address this, I implemented a function that tracks browser visibility and creates timestamps. By comparing these timestamps, the app calculates the elapsed time and adjusts the clock accordingly if the difference exceeds one second.</p>
+        `,
+    // Add more projects here
+  };
 
   if (!nav || !scrollerWrapper || !h1) {
     console.error("Required elements not found");
@@ -307,6 +321,35 @@ const main = () => {
       stopSpinner();
       fadeOutPreloader();
     }, 300);
+  });
+
+  document.querySelectorAll(".read-more-btn").forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      const projectKey = (event.target as HTMLElement).getAttribute(
+        "data-project"
+      );
+      if (projectKey && projectDetails[projectKey]) {
+        modalText.innerHTML = projectDetails[projectKey];
+        overlay.classList.remove("hidden");
+        modal.classList.remove("hidden");
+        overlay.style.display = "block"; // Show overlay
+        modal.style.display = "block"; // Show modal
+      }
+    });
+  });
+
+  closeModalBtn.addEventListener("click", () => {
+    overlay.classList.add("hidden");
+    modal.classList.add("hidden");
+    overlay.style.display = "none"; // Hide overlay
+    modal.style.display = "none"; // Hide modal
+  });
+
+  overlay.addEventListener("click", () => {
+    overlay.classList.add("hidden");
+    modal.classList.add("hidden");
+    overlay.style.display = "none"; // Hide overlay
+    modal.style.display = "none"; // Hide modal
   });
 
   // Event listener for window resize to re-check screen size
