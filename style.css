@@ -217,50 +217,6 @@ body {
   margin: 0 auto;
 }
 
-.construction-sign {
-  margin-top: 1rem;
-  background-color: #ffcc01;
-  text-align: center;
-  text-transform: uppercase;
-  padding: 2rem;
-  position: relative;
-  font-weight: 800;
-  font-size: 1.5rem;
-  box-shadow: 0 20px 10px 10px rgba(0, 0, 0, 0.2);
-  color: #333333;
-}
-
-.construction-stripes {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  width: 100%;
-  height: 1rem;
-  left: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    #333333,
-    #333333 1rem,
-    #ffcc01 1rem,
-    #ffcc01 1.5rem
-  );
-}
-
-.construction-stripes.top {
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-  top: 0;
-  transform: translateY(-1rem);
-}
-
-.construction-stripes.bottom {
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
-  border-radius-bottom: 0.5rem;
-  bottom: 0;
-  transform: translateY(1rem);
-}
-
 #experience {
   padding-top: 4rem;
 }
@@ -746,9 +702,7 @@ ol {
   background-color: var(--background);
 }
 
-/* Small devices (mobile phones) */
 @media (max-width: 320px) {
-  /* Styles for small mobile devices */
   .button-glow,
   .button-shiny {
     padding: 0.8rem;
@@ -760,13 +714,17 @@ ol {
 }
 
 @media (max-width: 450px) {
-  /* Styles for larger mobile devices */
   #about h2 {
     padding-top: 4rem;
   }
 
   .button-glow .button-shiny {
     padding: 0;
+  }
+
+  .button-glow::before,
+  .button-glow::after {
+    animation: none;
   }
 
   .construction-sign {
@@ -919,6 +877,7 @@ ol {
   .project-list {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   .scroller-wrapper {
@@ -926,20 +885,20 @@ ol {
   }
 }
 
-@media (min-width: 451px) and (max-width: 1024px) {
-  /* Styles for standard tablets */
-  .container {
-    padding: 1rem;
+@media (min-width: 768px) and (max-width: 1024px) {
+  .button-glow,
+  .button-shiny {
+    /* padding: 0; */
+    animation: none !important;
   }
 
   .button-glow::before,
   .button-glow::after {
-    animation: none;
+    animation: none !important;
   }
 
-  .modal {
-    width: 75%;
-    max-width: 75%;
+  .container {
+    padding: 1rem;
   }
 
   .project-list {
@@ -948,6 +907,10 @@ ol {
     gap: 1rem;
   }
 
+  .modal {
+    width: 75%;
+    max-width: 75%;
+  }
   .scroller-wrapper {
     padding: 0;
   }

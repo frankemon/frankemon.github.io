@@ -22,7 +22,7 @@ const main = () => {
 
   const projectDetails: { [key: string]: string } = {
     coffeecount: `
-            <p>Originally built in React with JavaScript, I first converted all files to TypeScript and implemented TailwindCSS. The design is simple and coffee-themed, featuring bold text and a clean UI.</p>
+            <p>Originally built in React with JavaScript, I first converted all files to TypeScript and then converted the original design from CSS to TailwindCSS. The design is simple and coffee-themed, featuring bold text and a clean UI.</p>
             <p>The biggest challenge was handling the timer on mobile devices, as browsers pause when not in focus to save battery and data. To address this, I implemented a function that tracks browser visibility and creates timestamps. By comparing these timestamps, the app calculates the elapsed time and adjusts the clock accordingly if the difference exceeds one second.</p>
         `,
     // Add more projects here
