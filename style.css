@@ -561,6 +561,7 @@ nav.floating-nav {
 .project-card img {
   width: 100%;
   height: auto;
+  max-height: 200px;
   border-radius: 0.5rem;
   object-fit: cover;
   flex-grow: 1;

@@ -25,6 +25,12 @@ const main = () => {
             <p>Originally built in React with JavaScript, I first converted all files to TypeScript and then converted the original design from CSS to TailwindCSS. The design is simple and coffee-themed, featuring bold text and a clean UI.</p>
             <p>The biggest challenge was handling the timer on mobile devices, as browsers pause when not in focus to save battery and data. To address this, I implemented a function that tracks browser visibility and creates timestamps. By comparing these timestamps, the app calculates the elapsed time and adjusts the clock accordingly if the difference exceeds one second.</p>
         `,
+    slidepuzzle: `
+        <p>This is a 15 slide puzzle game built with React, TypeScript and Tailwind. The goal is to arrange the tiles in numerical order by sliding them into the empty space.</p>
+        <p>The biggest challenge was implementing the sliding logic and ensuring that the game is solvable.</p>
+        <p>This was originally for a job interview to test my Frontend skills. It originally used styled-components, which I had not used before.</p>
+        <p>After submitting the original version, I switched to TailwindCSS for a faster workflow and added a few new features and quality of life changes.</p>
+    `,
     // Add more projects here
   };
 
