@@ -19,6 +19,7 @@ const main = () => {
     "modal-text-wrapper"
   ) as HTMLElement;
   const closeModalBtn = document.getElementById("close-modal") as HTMLElement;
+  const copyrightElement = document.getElementById("copyright") as HTMLElement;
 
   const projectDetails: { [key: string]: string } = {
     coffeecount: `
@@ -293,6 +294,13 @@ const main = () => {
       hamburger.classList.toggle("open");
     }
   };
+
+  const updateCopyrightYear = () => {
+  const currentYear = new Date().getFullYear();
+  if (copyrightElement) {
+    copyrightElement.textContent = currentYear.toString();
+  }
+};
 
   // Initial call to update the SVG fill color
   updateFillColor();
