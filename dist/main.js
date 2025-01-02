@@ -15,6 +15,7 @@ const main = () => {
     const modal = document.getElementById("modal");
     const modalText = document.getElementById("modal-text-wrapper");
     const closeModalBtn = document.getElementById("close-modal");
+    const copyrightElement = document.getElementById("copyright");
     const projectDetails = {
         coffeecount: `
             <p>Originally built in React with JavaScript, I first converted all files to TypeScript and then converted the original design from CSS to TailwindCSS. The design is simple and coffee-themed, featuring bold text and a clean UI.</p>
@@ -251,6 +252,12 @@ const main = () => {
             hamburger.classList.toggle("open");
         }
     };
+    const updateCopyrightYear = () => {
+        const currentYear = new Date().getFullYear();
+        if (copyrightElement) {
+            copyrightElement.textContent = currentYear.toString();
+        }
+    };
     // Initial call to update the SVG fill color
     updateFillColor();
     // Call the function to set up smooth scrolling
@@ -259,6 +266,7 @@ const main = () => {
     setupScrollToTop();
     // Initial check
     checkScreenSizeAndAddListener();
+    updateCopyrightYear();
     // Event listeners for the icons
     sunIcon.addEventListener("click", () => {
         showPreloader();
