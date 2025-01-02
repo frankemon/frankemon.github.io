@@ -296,11 +296,11 @@ const main = () => {
   };
 
   const updateCopyrightYear = () => {
-  const currentYear = new Date().getFullYear();
-  if (copyrightElement) {
-    copyrightElement.textContent = currentYear.toString();
-  }
-};
+    const currentYear = new Date().getFullYear();
+    if (copyrightElement) {
+      copyrightElement.textContent = currentYear.toString();
+    }
+  };
 
   // Initial call to update the SVG fill color
   updateFillColor();
@@ -313,6 +313,8 @@ const main = () => {
 
   // Initial check
   checkScreenSizeAndAddListener();
+
+  updateCopyrightYear();
 
   // Event listeners for the icons
   sunIcon.addEventListener("click", () => {
